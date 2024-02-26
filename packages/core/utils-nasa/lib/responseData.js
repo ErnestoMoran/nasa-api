@@ -1,3 +1,9 @@
+/**
+ * Response object
+ * @param body
+ * @param options
+ * @returns {{headers: (*|{}), body: string, statusCode: (*|number)}}
+ */
 export const responseData = ( body, options ) => {
     return {
         body: JSON.stringify({

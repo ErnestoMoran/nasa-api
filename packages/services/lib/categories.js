@@ -10,6 +10,10 @@ const pruebaAxios = async () => {
   return await customFetch(url, method)
 }
 
+
+/**
+ * Save sync into database
+ */
 const syncCategories = async () => {
   try {
     const url = 'https://eonet.gsfc.nasa.gov/api/v2.1/categories'
@@ -29,6 +33,9 @@ const syncCategories = async () => {
   
 }
 
+/**
+ * Response the list of categories
+ */
 const listCategories = async () => {
   try {
     const connection = await connectToCluster()

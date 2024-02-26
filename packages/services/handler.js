@@ -2,7 +2,9 @@ import boom from '@hapi/boom'
 import { listCategories, pruebaAxios, syncCategories, saveFirstEvents, syncEvents,listAllEvents, listEventsByDate } from './lib/index.js'
 import {responseData} from 'utils-nasa'
 
-
+/**
+ * Sync all the categories
+ */
 const syncCategoriesHandler = async () => { 
     try{
         const categoriesResponse = await syncCategories()
@@ -15,6 +17,9 @@ const syncCategoriesHandler = async () => {
     }
 }
 
+/**
+ * List of all the categories
+ */
 const listCategoriesHandler = async () => {
     try{
         const categoriesResponse = await listCategories()
@@ -27,6 +32,9 @@ const listCategoriesHandler = async () => {
     }
 }
 
+/**
+ *  Save the first event
+ */
 const saveEventsHandler = async () =>{
     try {
         const responseEvents = await saveFirstEvents()
@@ -39,6 +47,11 @@ const saveEventsHandler = async () =>{
     }
 }
 
+/**
+ * Save all the events
+ * @param event
+ * @param context
+ */
 const syncEventsHandler = async (event,context) => {
     try {
         const responseEvents = await syncEvents(event,context)
@@ -51,6 +64,9 @@ const syncEventsHandler = async (event,context) => {
     }
 }
 
+/**
+ * List of all events
+ */
 const listAllEventsHandler = async() =>{
     try {
         const response = await listAllEvents()
@@ -63,6 +79,10 @@ const listAllEventsHandler = async() =>{
     }
 }
 
+/**
+ * List of all the events by the date
+ * @param event
+ */
 const listEventByDateHandler = async( event ) =>{
     try {
         const response = await listEventsByDate(event)

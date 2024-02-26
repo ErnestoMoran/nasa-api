@@ -1,5 +1,14 @@
 import axios from 'axios'
 
+/**
+ *
+ * @param url
+ * @param method
+ * @param params
+ * @param data
+ * @param headers
+ * @returns {Promise<any>}
+ */
 const customFetch = async (url, method,params,data,headers) =>{
     try {
         const response = await axios({

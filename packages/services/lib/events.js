@@ -4,7 +4,9 @@ import  { connectToCluster } from 'models'
 import { customFetch } from 'utils-nasa'
 import dayjs from 'dayjs'
 
-
+/**
+ * Save the first event into the database
+ */
 const saveFirstEvents = async () =>{
     try{
         const url = 'https://eonet.gsfc.nasa.gov/api/v2.1/events'
@@ -24,6 +26,11 @@ const saveFirstEvents = async () =>{
     }
 }
 
+/**
+ * Sync all events into the database
+ * @param event
+ * @param context
+ */
 const syncEvents = async (event, context) => {
     try {
         const days= event?.queryStringParameters?.days ?? 1
@@ -42,6 +49,10 @@ const syncEvents = async (event, context) => {
 
 }
 
+/**
+ * Create or update the event into the database
+ * @param events
+ */
 const createOrUpdateEvent = async (events) => {
     try {
         const connection = await connectToCluster()
@@ -68,6 +79,9 @@ const createOrUpdateEvent = async (events) => {
     }
 }
 
+/**
+ * List of all the events
+ */
 const listAllEvents = async() =>{
     try {
         const connection = await connectToCluster()
@@ -85,7 +99,10 @@ const listAllEvents = async() =>{
         throw boom.internal(error)
     }
 }
-
+/**
+ *  List of event by a date
+ * @param event
+ */
 const listEventsByDate = async( event ) =>{
     try {
         const date = event?.queryStringParameters?.date
