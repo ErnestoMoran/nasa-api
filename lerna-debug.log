@@ -1,0 +1,21 @@
+0 silly argv {
+0 silly argv   _: [ 'clean' ],
+0 silly argv   lernaVersion: '8.1.2',
+0 silly argv   '$0': 'C:\\Program Files\\nodejs\\node_modules\\lerna\\dist\\cli.js'
+0 silly argv }
+1 notice cli v8.1.2
+2 verbose packageConfigs Resolving packages based on package.json "workspaces" configuration.
+3 verbose rootPath C:\Users\ernes\WebstormProjects\nasa-api
+4 error JSONError: Expected double-quoted property name in JSON at position 535 while parsing '{  "name": "prueba",  "version": "0.0.' in packages\core\prueba\package.json
+4 error
+4 error [0m [90m  9 |[39m   [32m"directories"[39m[33m:[39m {[0m
+4 error [0m [90m 10 |[39m     [32m"lib"[39m[33m:[39m [32m"lib"[39m[33m,[39m[0m
+4 error [0m[31m[1m>[22m[39m[90m 11 |[39m   }[33m,[39m[0m
+4 error [0m [90m    |[39m   [31m[1m^[22m[39m[0m
+4 error [0m [90m 12 |[39m   [32m"files"[39m[33m:[39m [[0m
+4 error [0m [90m 13 |[39m     [32m"lib"[39m[0m
+4 error [0m [90m 14 |[39m   ][33m,[39m[0m
+4 error
+4 error     at parseJson (C:\Users\ernes\WebstormProjects\nasa-api\node_modules\parse-json\index.js:29:21)
+4 error     at parse (C:\Users\ernes\WebstormProjects\nasa-api\node_modules\load-json-file\index.js:15:9)
+4 error     at module.exports (C:\Users\ernes\WebstormProjects\nasa-api\node_modules\load-json-file\index.js:18:47)

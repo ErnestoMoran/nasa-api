@@ -1,0 +1,56 @@
+service: prueba
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+  timeout: 900
+plugins:
+  - serverless-offline
+  - serverless-plugin-monorepo
+
+functions:
+  syncCategories:
+    handler: handler.syncCategoriesHandler
+    events:
+      - http:
+          path: sync-categories
+          method: get
+  listCategories:
+    handler: handler.listCategoriesHandler
+    events:
+      - http:
+          path: list-categories
+          method: get
+  saveEvents:
+    handler: handler.saveEventsHandler
+    events:
+      - http:
+          path: save-events
+          method: post        
+  syncEvents:
+    handler: handler.syncEventsHandler
+    events:
+      - http:
+          path: sync-events
+          method: post
+  listAllEvents:
+    handler: handler.listAllEventsHandler
+    events:
+      - http:
+          path: events/list/all
+          method: get       
+  listEventByDate:
+    handler: handler.listEventByDateHandler
+    events:
+      - http:
+          path: events/list
+          method: get            
+  cronsSyncEvents:
+    handler: handler.syncEventsHandler
+    events:
+      - schedule: cron(0 15 * * ? *)
+      - schedule: cron(0 3 * * ? *)
+      - http:
+          path: sync-events
+          method: get
+        
